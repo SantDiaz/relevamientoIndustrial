@@ -15,6 +15,9 @@ import { RegisterComponent } from './sesion/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './tables/table/table.component';
 import { ConsultasComponent } from './tables/consultas/consultas.component';
+import { HomeAnComponent } from './home/homeProfile/home-an/home-an.component';
+import { HomeIngComponent } from './home/homeProfile/home-ing/home-ing.component';
+import { HomeAdmComponent } from './home/homeProfile/home-adm/home-adm.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,10 @@ import { ConsultasComponent } from './tables/consultas/consultas.component';
     RegisterComponent,
     TableComponent,
     ConsultasComponent,
+    HomeAnComponent,
+    HomeIngComponent,
+    HomeAdmComponent,
+
     
   ],
   imports: [
@@ -36,7 +43,7 @@ import { ConsultasComponent } from './tables/consultas/consultas.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,  // Add HttpClientModule here
-    ReactiveFormsModule 
+    ReactiveFormsModule,
   ],
   exports: [
     HomeComponent,

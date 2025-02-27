@@ -8,6 +8,12 @@ import { FourComponent } from './steppers/four/four.component';
 import { LoginComponent } from './sesion/login/login.component';
 import { RegisterComponent } from './sesion/register/register.component';
 import { TableComponent } from './tables/table/table.component';
+import { HomeAdmComponent } from './home/homeProfile/home-adm/home-adm.component';
+import { HomeAnComponent } from './home/homeProfile/home-an/home-an.component';
+import { HomeIngComponent } from './home/homeProfile/home-ing/home-ing.component';
+import { HomeSupComponent } from './home/homeProfile/home-sup/home-sup.component';
+import { HomeCorComponent } from './home/homeProfile/home-cor/home-cor.component';
+import { HomeValComponent } from './home/homeProfile/home-val/home-val.component';
 
 const routes: Routes = [
   {
@@ -46,6 +52,30 @@ const routes: Routes = [
   {
     path: 'table',
     component: TableComponent
+  },
+  {
+    path: 'homeAdm',
+    component: HomeAdmComponent
+  },
+  {
+    path: 'homeAn',
+    component: HomeAnComponent
+  },
+  {
+    path: 'homeIng',
+    component: HomeIngComponent
+  },
+  {
+    path: 'homeSup',
+    component: HomeSupComponent
+  },
+  {
+    path: 'homeCor',
+    component: HomeCorComponent
+  },
+  {
+    path: 'homeVal',
+    component: HomeValComponent
   }
 ];
 
