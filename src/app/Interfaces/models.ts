@@ -11,7 +11,11 @@ export interface encuestas {
     medio: 'PAPEL' | 'DIGITAL'
     observaciones_ingresador: string;
     observaciones_analista: string;
-    anio? : '2024'
+    anio? : '2024';
+    estado?: 'ENVIADO' | 'PENDIENTE' | 'NO ENVIADO' | 'PENDIENTE';
+    supervisor?: string;
+    observaciones_supervisor?: string;
+    referente?:string;
 }
 
 export interface DatosEmpresa {
@@ -25,7 +29,7 @@ export interface DatosEmpresa {
     actividadPrincipal: string;
     id_empresa?: number;  // Agregar id_empresa
     clanae?: string;
-
+    estratificación?: string;
   }
   
   export interface DatosRespondiente {
