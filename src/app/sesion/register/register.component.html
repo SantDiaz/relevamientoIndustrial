@@ -1,57 +1,78 @@
 <app-header></app-header>
 <br><br>
 
-<div class="min-h-screen flex items-center justify-center ">
+<div class="min-h-screen flex items-center justify-center">
   <div class="bg-white p-8 rounded-lg shadow-md w-96">
     <h2 class="text-2xl font-bold mb-6 text-center">Registro</h2>
-    <form class="w-full max-w-lg">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="flex flex-wrap -mx-3 mb-6">
         <!-- First Name -->
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="firstName">
             Nombre
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
+          <input 
+            id="firstName" 
+            formControlName="firstName"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+            type="text" 
+            placeholder="Jane" />
         </div>
+
         <!-- Last Name -->
         <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="lastName">
             Apellido
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="grid-last-name" type="text" placeholder="Doe">
+          <input 
+            id="lastName" 
+            formControlName="lastName"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" 
+            type="text" 
+            placeholder="Doe" />
         </div>
       </div>
+
       <div class="flex flex-wrap -mx-3 mb-6">
         <!-- Usuario -->
         <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-username">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="username">
             Usuario
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-username" type="text" placeholder="Primera letra del nombre seguido del apellido.">
+          <input 
+            id="username" 
+            formControlName="username"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+            type="text" 
+            placeholder="Primera letra del nombre seguido del apellido." />
         </div>
+
         <!-- Password -->
         <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
             Contraseña
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-password" type="password" placeholder="******************">
+          <input 
+            id="password" 
+            formControlName="password"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+            type="password" 
+            placeholder="******************" />
         </div>
       </div>
-      <div class="flex flex-wrap -mx-3 mb-2 justify-center">
+
+      <div class="flex flex-wrap -mx-3 mb-2 ">
         <!-- Profile -->
         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label class="block justify-center
-          
-          
-          
-          
-          uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+          <label class="block justify-center uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="profile">
             Perfil
           </label>
           <div class="relative flex justify-center">
-            <select class="block appearance-none w-full bg-gray-200 border border-[#FF8300] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white" id="grid-state">
-              <!-- Utiliza *ngFor para iterar sobre la lista de perfiles -->
-              <option *ngFor="let perfil of profi" [value]="perfil">
+            <select 
+              id="profile" 
+              formControlName="profile"
+              class="block appearance-none w-full bg-gray-200 border border-[#FF8300] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
+              <option  *ngFor="let perfil of profi" [value]="perfil">
                 {{ perfil }}
               </option>
             </select>
@@ -59,15 +80,13 @@
               <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
             </div>
           </div>
-          
         </div>
-        <br><br><br><br>
-        <button
-        type="submit"
-        class="bg-[#FF8300] text-white px-4 py-2 rounded w-full"      >
-        Iniciar Sesión
-      </button>
       </div>
+
+      <br><br><br><br>
+      <button type="submit" class="bg-[#FF8300] text-white px-4 py-2 rounded w-full">
+        Registrarse
+      </button>
     </form>
   </div>
 </div>
