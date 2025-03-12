@@ -42,11 +42,11 @@ const routes: Routes = [
     component: FourComponent
   },
   { 
-    path: 'reg',
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path: 'log',
+    path: 'login',
     component: LoginComponent
   },
   {

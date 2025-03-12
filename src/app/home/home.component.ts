@@ -10,50 +10,11 @@ import { EncuestaService } from '../services/encuesta.service';  // Import the s
 })
 export class HomeComponent implements OnInit {
 
-  encuesta: encuestas = {
-    id_operativo: 0,
-    id_empresa: 0,
-    ingresador: '',
-    analista: '',
-    fecha_entrega: new Date(),
-    fecha_recupero: new Date(),
-    fecha_supervision: new Date(),
-    fecha_ingreso: new Date(),  // No será visible
-    medio: 'PAPEL',
-    observaciones_ingresador: '',
-    observaciones_analista: '',
-    anio: '2024', 
-  };
 
-  idEmpresa: number = 0 ;
-
-
-  constructor(private encuestaService: EncuestaService, private router: Router) { }  // Inject the service
+  constructor() { }  // Inject the service
 
   ngOnInit(): void { }
 
 
-  onSubmit() {
 
-
-    this.encuestaService.saveEncuesta(this.encuesta).subscribe({
-      next: (response) => {
-        console.log('Encuesta saved successfully:', response);
-        this.encuesta.anio = '2024';
-        // Suponiendo que el id_empresa viene en el response
-        const idEmpresa = response.id_empresa;
-
-        // Redirigir al componente 'oneComponent' con id_empresa como parámetro
-        this.router.navigate(['/one', idEmpresa]);
-      },
-      error: (error) => {
-        console.error('Error saving encuesta:', error);
-      }
-    });
-  }
-
-  nextStep() {
-    console.log(this.encuesta);
-    this.onSubmit();  // Save the form data when moving to the next step
-  }
 }

@@ -1,3 +1,5 @@
+
+
 export interface encuestas {
 
     id_empresa: number;
@@ -12,7 +14,7 @@ export interface encuestas {
     observaciones_ingresador: string;
     observaciones_analista: string;
     anio? : '2024';
-    estado?: 'ENVIADO' | 'PENDIENTE' | 'NO ENVIADO' | 'PENDIENTE';
+    estado?: 'No entregado' | 'No encontrado (no existe)' | 'Cierre definitivo' | 'Rechazado'| 'Ausente'| 'Entregado'| 'Recepcionado'| 'Pre-validado'| 'Validado'| 'Ingresado' ;
     supervisor?: string;
     observaciones_supervisor?: string;
     referente?:string;
@@ -256,3 +258,7 @@ export interface items{
   respuesta: string;
 
 }
+
+export const profile = ['Supervisor', 'Validador', 'Ingresador', 'Analista', 'Coordinador'];
+     
+export const estado = ['No entregado' , 'No encontrado (no existe)' , 'Cierre definitivo' , 'Rechazado', 'Ausente', 'Entregado', 'Recepcionado', 'Pre-validado', 'Validado', 'Ingresado'];
