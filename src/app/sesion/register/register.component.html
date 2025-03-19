@@ -70,10 +70,10 @@
           <div class="relative flex justify-center">
             <select 
               id="profile" 
-              formControlName="profile"
+              formControlName="profile"  <!-- Aquí usamos formControlName para vincularlo al formulario -->
               class="block appearance-none w-full bg-gray-200 border border-[#FF8300] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
-              <option  *ngFor="let perfil of profi" [value]="perfil">
-                {{ perfil }}
+              <option  *ngFor="let perfil of profiles" [value]="perfil.id">
+                {{ perfil.name }}
               </option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

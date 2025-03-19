@@ -258,7 +258,27 @@ export interface items{
   respuesta: string;
 
 }
+  
+export interface Profile {
+  id: number;
+  name: string;
+}
 
-export const profile = ['Supervisor', 'Validador', 'Ingresador', 'Analista', 'Coordinador'];
-     
+export interface User {
+  id: number;
+  user: string;
+  password: string;
+  profileId: number; // Usamos la FK
+}
+
+export const profiles: Profile[] = [
+  { id: 1, name: 'Supervisor' },
+  { id: 2, name: 'Validador' },
+  { id: 3, name: 'Ingresador' },
+  { id: 4, name: 'Analista' },
+  { id: 5, name: 'Coordinador' },
+  { id: 6, name: 'Administrador' }
+
+];
+
 export const estado = ['No entregado' , 'No encontrado (no existe)' , 'Cierre definitivo' , 'Rechazado', 'Ausente', 'Entregado', 'Recepcionado', 'Pre-validado', 'Validado', 'Ingresado'];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { profile } from 'src/app/Interfaces/models';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importar FormBuilder y Validators
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { Profile, User } from 'src/app/Interfaces/models';
 
 @Component({
   selector: 'app-register',
@@ -9,43 +9,53 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // Definir la variable para perfiles
-  profi = profile;
-
-  // Crear el formulario de registro
+  
   registerForm: FormGroup;
+  profiles: Profile[] = [
+    { id: 1, name: 'Supervisor' },
+    { id: 2, name: 'Validador' },
+    { id: 3, name: 'Ingresador' },
+    { id: 4, name: 'Analista' },
+    { id: 5, name: 'Coordinador' },
+    { id: 6, name: 'Administrador' },
+  ];
 
-  // Inyectamos AuthService y FormBuilder
-  constructor(private authService: AuthService, private fb: FormBuilder) {
-    // Inicializamos el formulario
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.minLength(2)]],
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      profile: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      profile: ['', Validators.required]  // Aquí se guarda el profileId
     });
   }
 
-  ngOnInit(): void {}
-
-  // Método para enviar el formulario
-  onRegister(): void {
-    if (this.registerForm.valid) {
-      const { firstName, lastName, username, password, profile } = this.registerForm.value;
-
-      // Usamos el servicio de AuthService para registrar el usuario
-      this.authService.register(username, password).subscribe({
-        next: (response) => {
-          console.log('Usuario registrado con éxito', response);
-          // Aquí puedes redirigir al usuario a la página de login o de inicio
-        },
-        error: (error) => {
-          console.error('Error al registrar usuario', error);
-        }
-      });
-    } else {
-      console.log('Formulario no válido');
-    }
+  ngOnInit(): void {
+    // Si necesitas cargar perfiles desde un servicio, puedes hacerlo aquí
   }
+// Método para enviar el formulario
+onRegister(): void {
+  if (this.registerForm.valid) {
+    const { username, password, profile } = this.registerForm.value;
+
+    // Preparamos los datos del nuevo usuario con el perfil
+    const userData = {
+      username,
+      password,
+      profileId: profile  // Aquí utilizamos el 'profile' que es el ID del perfil seleccionado
+    };
+
+    // Usamos el servicio de AuthService para registrar el usuario
+    this.authService.register(userData.username, userData.password).subscribe({
+      next: (response) => {
+        console.log('Usuario registrado con éxito', response);
+        // Aquí puedes redirigir al usuario a la página de login o de inicio
+      },
+      error: (error) => {
+        console.error('Error al registrar usuario', error);
+      }
+    });
+  } else {
+    console.log('Formulario no válido');
+  }
+}
+
 }
