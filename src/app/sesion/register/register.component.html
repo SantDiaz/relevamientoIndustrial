@@ -1,5 +1,4 @@
 <app-header></app-header>
-<br><br>
 
 <div class="min-h-screen flex items-center justify-center">
   <div class="bg-white p-8 rounded-lg shadow-md w-96">
@@ -7,7 +6,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="flex flex-wrap -mx-3 mb-6">
         <!-- First Name -->
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <!-- <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="firstName">
             Nombre
           </label>
@@ -17,10 +16,9 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
             type="text" 
             placeholder="Jane" />
-        </div>
+        </div> -->
 
-        <!-- Last Name -->
-        <div class="w-full md:w-1/2 px-3">
+        <!-- <div class="w-full md:w-1/2 px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="lastName">
             Apellido
           </label>
@@ -30,7 +28,7 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-[#FF8300] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" 
             type="text" 
             placeholder="Doe" />
-        </div>
+        </div> -->
       </div>
 
       <div class="flex flex-wrap -mx-3 mb-6">
@@ -70,7 +68,7 @@
           <div class="relative flex justify-center">
             <select 
               id="profile" 
-              formControlName="profile"  <!-- Aquí usamos formControlName para vincularlo al formulario -->
+              formControlName="profile"  
               class="block appearance-none w-full bg-gray-200 border border-[#FF8300] text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
               <option  *ngFor="let perfil of profiles" [value]="perfil.id">
                 {{ perfil.name }}
@@ -84,7 +82,7 @@
       </div>
 
       <br><br><br><br>
-      <button type="submit" class="bg-[#FF8300] text-white px-4 py-2 rounded w-full">
+      <button (click)="onRegister()" type="submit" class="bg-[#FF8300] text-white px-4 py-2 rounded w-full">
         Registrarse
       </button>
     </form>

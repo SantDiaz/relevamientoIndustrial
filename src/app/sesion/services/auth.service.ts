@@ -14,7 +14,7 @@ export class AuthService {
   private apiUrl = 'http://localhost:8080/api'; // Ajusta según tu URL del backend
 
   constructor(private http: HttpClient) {
-    this.checkCurrentUser();
+    // this.checkCurrentUser();
   }
 
   register(username: string, password: string): Observable<any> {
