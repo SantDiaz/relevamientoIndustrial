@@ -75,6 +75,13 @@ export class AuthService {
     }
     return throwError(() => new Error(errorMessage));
   }
+
+
+
+  getAllUsers(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/users`);
+  }
+
 }
 
 
