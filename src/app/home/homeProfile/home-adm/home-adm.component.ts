@@ -22,4 +22,10 @@ export class HomeAdmComponent implements OnInit {
     );
   }
 
+  modifyRole(userId: number) {
+    // Lógica para modificar el rol
+    console.log(`Modificando rol del usuario con ID: ${userId}`);
+    // Aquí podrías abrir un modal, redirigir, o llamar a un servicio
+  }
+
 }
