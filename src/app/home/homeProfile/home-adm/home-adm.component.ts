@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 export class HomeAdmComponent implements OnInit {
   users: any[] = [];
   availableRoles: string[] = ['ADMIN', 'SUPERVISOR', 'VALIDADOR', 'INGRESADOR', 'ANALISTA', 'COORDINADOR'];
+  activeSegment: string = 'all'; // Variable para controlar el segmento activo
 
   selectedSegment: 'all' | 'favorites' = 'all'; // Inicialmente en 'all'
 
@@ -66,5 +67,8 @@ export class HomeAdmComponent implements OnInit {
     }
   }
   
-  
+    // Método para cambiar de segmento
+    toggleSegment(segment: string) {
+      this.activeSegment = segment;
+    }
 }
